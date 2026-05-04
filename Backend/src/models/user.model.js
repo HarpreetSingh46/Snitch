@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-
 const userSchema = new mongoose.Schema({
     username: {
         type: String,   
@@ -37,12 +36,9 @@ const userSchema = new mongoose.Schema({
         if (!this.isModified("password")) {
             return ;
         }
-
         const hash =  await bcrypt.hash(this.password, 10);
         this.password = hash;
-        
     });
-
     userSchema.methods.comparePassword = async function (password) {
         return await bcrypt.compare(password, this.password);
     };
