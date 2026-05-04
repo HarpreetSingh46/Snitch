@@ -104,13 +104,8 @@ export const googleCallback = async (req, res) => {
     })
     res.cookie("token", token)
     res.redirect("http://localhost:5173/")
-
-    // Here you would typically find or create a user in your database based on the Google profile information
-    // For this example, we'll just return the profile information as a response
     res.json({ message: "Google login successful", profile: userProfile });
 }
-
-
 export const getMe = async (req, res) => {
     const user = req.user;
     res.status(200).json({  
