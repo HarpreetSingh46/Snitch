@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const priceSchema = new mongoose.Schema({
     amount: {
         type: Number,
@@ -14,8 +13,5 @@ const priceSchema = new mongoose.Schema({
 }, { 
     _id: false,
     _v: false,
-
-
 });
-
 export default priceSchema;
