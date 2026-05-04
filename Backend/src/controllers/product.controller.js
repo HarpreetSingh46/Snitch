@@ -1,8 +1,6 @@
 import productModel from "../models/product.model.js";
 import { uploadFile } from "../services/storage.service.js";    
 
-
-
 export async function createProduct(req, res) {
 
         const{title, description, priceAmount , priceCurrency } = req.body;
@@ -14,7 +12,6 @@ export async function createProduct(req, res) {
                          fileName : file.originalname
                         })
         }))
-
         const product =  await productModel.create({
                 title,
                 description,
@@ -32,7 +29,6 @@ export async function createProduct(req, res) {
         })
 }
 
-
 export async function GetSellerProducts(req,res) {
                 const seller = req.user;
 
@@ -44,9 +40,6 @@ export async function GetSellerProducts(req,res) {
                         success:true,
                         products ,  
                 })
-
-
-
 
 }
 
